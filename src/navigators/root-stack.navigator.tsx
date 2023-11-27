@@ -35,7 +35,7 @@ const RootStackNavigator = (): JSX.Element | null => {
   const dispatch = useAppDispatch();
 
   const [isAppLoaded, setIsAppLoaded] = useState(false);
-  const { alreadyLaunched, app_setAlreadyLaunched, app_checkServerStatus } = useApp();
+  const { alreadyLaunched, app_setAlreadyLaunched, app_checkMockServerStatus } = useApp();
 
   /**
    * check already launched
@@ -48,12 +48,12 @@ const RootStackNavigator = (): JSX.Element | null => {
   /**
    * check server status
    */
-  const checkServerStatus = async (): Promise<void> => {
-    // if (__DEV__) {
-    //   return Promise.resolve();
-    // }
+  const checkMockServerStatus = async (): Promise<void> => {
+    if (__DEV__) {
+      return Promise.resolve();
+    }
     try {
-      const response = await app_checkServerStatus(undefined);
+      const response = await app_checkMockServerStatus(undefined);
       console.log('RESPONSE', response);
     } catch (e) {
       log.info(JSON.stringify(e));
@@ -61,7 +61,7 @@ const RootStackNavigator = (): JSX.Element | null => {
   };
 
   const initApp = async (): Promise<void> => {
-    await checkServerStatus();
+    await checkMockServerStatus();
     await checkIsAlreadyLaunched();
   };
 

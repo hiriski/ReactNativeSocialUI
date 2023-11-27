@@ -3,6 +3,8 @@ import { NavigationContainer as ReactNavigationContainer } from '@react-navigati
 
 import RootStackNavigator from './root-stack.navigator';
 
+import { StatusBar } from '@/components/core';
+
 // hooks
 import { useTheme } from '@/modules/theme/hooks';
 
@@ -25,6 +27,7 @@ const NavigationContainer = () => {
       ref={navigationRef}
       onReady={onNavigationIsReady}
       theme={isDarkMode ? darkTheme : lightTheme}>
+      <StatusBar translucent backgroundColor='transparent' />
       <RootStackNavigator />
     </ReactNavigationContainer>
   );

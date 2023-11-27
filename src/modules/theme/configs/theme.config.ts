@@ -129,7 +129,7 @@ export const theme_paletteDark: Omit<IThemePalette, 'common' | 'primary' | 'seco
     default: paletteLibs.grey[900],
     paper: '#0e0e0e',
   },
-  divider: 'rgba(255, 255, 255, 0.5)',
+  divider: 'rgba(255, 255, 255, 0.05)',
   action: {
     active: '#fff',
     hover: 'rgba(255, 255, 255, 0.08)',

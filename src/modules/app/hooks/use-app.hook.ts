@@ -6,13 +6,14 @@ import { app_selector, app_reducerActions, appApi } from '@/modules/app/redux';
 const useApp = () => {
   const appState = useAppSelector(app_selector);
 
-  const [app_checkServerStatus, { isLoading: app_checkServerStatusIsLoading }] = appApi.useLazyCheckServerStatusQuery();
+  const [app_checkMockServerStatus, { isLoading: app_checkMockServerStatusIsLoading }] =
+    appApi.useLazyCheckServerStatusQuery();
 
   return {
     ...appState,
     ...app_reducerActions,
-    app_checkServerStatus,
-    app_checkServerStatusIsLoading,
+    app_checkMockServerStatus,
+    app_checkMockServerStatusIsLoading,
   };
 };
 
